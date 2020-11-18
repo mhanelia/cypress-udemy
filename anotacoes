@@ -5,12 +5,17 @@ Abrir o Cypress - npx cypress open
 --
 
 Arrow functions:
-Uma expressão arrow function possui uma sintaxe mais curta quando comparada a uma expressão de função (function expression) e não tem seu próprio this, arguments, super ou new.target. Estas expressões de funções são melhor aplicadas para funções que não sejam métodos, e elas não podem ser usadas como construtoras (constructors).
+Uma expressão arrow function possui uma sintaxe mais curta quando comparada a uma expressão de 
+função (function expression) e não tem seu próprio this, arguments, super ou new.target. 
+Estas expressões de funções são melhor aplicadas para funções que não sejam métodos, e 
+elas não podem ser usadas como construtoras (constructors).
 --
 
 Promisses:
 Uma Promise é um objeto que representa a eventual conclusão ou falha de uma operação assincrona.
-Uma necessidade comum é executar duas ou mais operações assincronas consecutivas, onde cada operação subsequente começa quando a operação anterior é bem sucedida, com o resultado do passo anterior. Nós conseguimos isso criando uma cadeia de promises.
+Uma necessidade comum é executar duas ou mais operações assincronas consecutivas, onde cada operação 
+subsequente começa quando a operação anterior é bem sucedida, com o resultado do passo anterior. 
+Nós conseguimos isso criando uma cadeia de promises.
 --
 
 Describe/ It
@@ -18,7 +23,8 @@ Describe/ It
 describe: agrupa testes
 it: são os testes em sí
 .skip: ele pula o teste ou grupo de testes, pode ser usado mais de uma vez
-.only: executa apenas aquele teste ou grupo de testes. Não pode ser mais de uma vez ele sempre entende o ultimo .only
+.only: executa apenas aquele teste ou grupo de testes. Não pode ser mais de uma vez ele 
+sempre entende o ultimo .only
 --
 
 Assertivas:
@@ -26,6 +32,24 @@ Assertivas:
 ao usar expect, tentar colocar de um jeito legível: expect(a).to.be.equal(a)
 --
 
+Procurar encadear as ações quando possível. Ex.:
+    cy.get('#buttonSimple')
+                .click()
+                .should('have.value', 'Obrigado!')
 
 
+Nas buscas, o . é uma classe CSS, o # é uma busca por ID, [] ele busca dentro da propriedade
+do elemento
 
+--
+Comandos: 
+.reload() - recarrega a tela
+
+.should() - Crie uma assertiva. As assertivas são repetidas automaticamente até que 
+passem ou expirem. não podem ser encadeados 'cy' (cy.should errado)
+
+before() ou beforeEach() podem ser chamados nas specs ou dentro de cypress/support
+
+para verificar o texte dentro de um campo de texto (textfield) usa-se have.value 
+
+.click({multiple:true}) - permite clicar em mais de um combobox em uma mesma chamada

@@ -23,3 +23,17 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('callCAPTCHA', () => {
+  // Aguarda até que o iframe (Google reCAPTCHA) seja totalmente carregado
+  cy.get('iframe')
+    .first() //Obtem o primeiro elemento DOM dentro de um conjunto de elementos DOM.
+    .its('0.contentDocument.body') // Obtem o valor de uma propriedade no assunto chamado anteriormente - iframe neste caso
+    .should('not.be.undefined') // Cria uma afirmacao. Neste caso o assunto acima não pode ser undefined
+    .and('not.be.empty') // e não pode ser vazio
+    .then(cy.wrap)
+    .find('#recaptcha-anchor')
+    .should('be.visible')
+    .click();
+                    
+    });
