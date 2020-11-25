@@ -93,7 +93,7 @@ describe('Trabalhando com elementos basicos', ()=>{
 
     });
 
-    it.only('Combobox', () => {
+    it('Combo', () => {
         cy.get('[data-test=dataEscolaridade]')
         .select('Mestrado')
         .should('have.value', 'mestrado')
@@ -102,7 +102,37 @@ describe('Trabalhando com elementos basicos', ()=>{
         .select('1graucomp')
         .should('have.value', '1graucomp')
 
+        cy.get('[data-test=dataEscolaridade] option')
+            .should('have.length',8)
+        cy.get('[data-test=dataEscolaridade] option').then($arr =>{
+            const values = []
+            $arr.each(function() {
+                values.push(this.innerHTML)
+
+            })
+            expect(values).to.include.members(["Superior","Mestrado"])
+        })
+
     });
+
+    it.only('Combo mul', () => {
+        cy.get('[data-testid=dataEsportes]')
+        .select(['natacao','Corrida','nada'])
+
+        // cy.get('[data-testid=dataEsportes]').should('have.value', ['nada'])
+
+        cy.get('[data-testid=dataEsportes]').then($el =>{
+            expect($el.val()).to.be.deep.equal(['natacao','Corrida', 'nada'])
+            expect($el.val()).to.have.length(3)
+            
+        })
+
+        cy.get('[data-testid=dataEsportes]')
+            .invoke('val')
+            .should('eql',['natacao','Corrida', 'nada'])
+    });
+
+    it
 
 
 

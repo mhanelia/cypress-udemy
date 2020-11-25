@@ -11,7 +11,7 @@ describe('Recaptcha', () => {
         // cy.log(setTimeout(() => {console.log(alert("É necessário resolver o CAPTCHA manualmente!!!")); }, 2000))
         
         cy.callCAPTCHA(); //funcao disponivel em commands.js
-        
+        //TODO confirmar se o captcha foi resolvido
 
     });
     

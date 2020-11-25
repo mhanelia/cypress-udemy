@@ -16,6 +16,10 @@ Uma Promise é um objeto que representa a eventual conclusão ou falha de uma op
 Uma necessidade comum é executar duas ou mais operações assincronas consecutivas, onde cada operação 
 subsequente começa quando a operação anterior é bem sucedida, com o resultado do passo anterior. 
 Nós conseguimos isso criando uma cadeia de promises.
+Exemplo
+cy.title().then(title =>{
+            console.log(title)
+        })
 --
 
 Describe/ It
@@ -46,10 +50,25 @@ Comandos:
 .reload() - recarrega a tela
 
 .should() - Crie uma assertiva. As assertivas são repetidas automaticamente até que 
-passem ou expirem. não podem ser encadeados 'cy' (cy.should errado)
+passem ou expirem. Não podem ser encadeados 'cy' (cy.should errado). o should só retenta o 
+comando diretamente anterior, ele sempre monitora o elemento que vem do comando anterior
 
 before() ou beforeEach() podem ser chamados nas specs ou dentro de cypress/support
 
 para verificar o texte dentro de um campo de texto (textfield) usa-se have.value 
 
 .click({multiple:true}) - permite clicar em mais de um combobox em uma mesma chamada
+
+Em combo e combo multiplo sempre leva-se em conta o value do elemento no HMTL
+
+timeout padrão é 4 segundos, pode ser passado como parametro individual ou alterar no cypress.json
+
+cy.wait() aguarda o tempo fixo na execução, o timeout é melhor pois é um limite máximo mas não fixo
+
+should fica realizando a busca mesmo o get não tenha terminado, o then só tenta a hora que carrega o que precisa
+
+should retorna o que foi enviado pelo elemento, o then vai ser o mesmo objeto mas se tiver um return ele devolve o return
+
+cy.wrap() ele encapsula um objeto para que esse objeto seja usado com outros cy.
+
+invoke chama uma propriedade de um objeto como função 
