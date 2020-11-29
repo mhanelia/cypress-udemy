@@ -132,10 +132,4 @@ describe('Trabalhando com elementos basicos', ()=>{
             .should('eql',['natacao','Corrida', 'nada'])
     });
 
-    it
-
-
-
-
-
 })

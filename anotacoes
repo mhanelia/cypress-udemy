@@ -43,7 +43,7 @@ Procurar encadear as ações quando possível. Ex.:
 
 
 Nas buscas, o . é uma classe CSS, o # é uma busca por ID, [] ele busca dentro da propriedade
-do elemento
+do elemento, @ é quando usa-se aliases
 
 --
 Comandos: 
