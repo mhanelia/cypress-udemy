@@ -42,7 +42,7 @@ describe('Trabalhando com alertas', ()=>{
         })
     })
 
-    it.only('Prompt', () => {
+    it('Prompt', () => {
         
         cy.window().then(win =>{
             cy.stub(win, 'prompt').returns('42')
@@ -59,7 +59,7 @@ describe('Trabalhando com alertas', ()=>{
         
     })
 
-    it.only('Validando mensagens', () => {
+    it('Validando mensagens', () => {
         const stub = cy.stub().as('alerta')
         cy.on('window:alert',stub)
         cy.get('#formCadastrar').click()
@@ -80,4 +80,9 @@ describe('Trabalhando com alertas', ()=>{
         cy.get('#resultado > :nth-child(1)').should('contain','Cadastrado!')
         
     })
+
+    it.only('Criar comando', () => {
+        cy.clickAlert('#alert', 'Alert Simples')
+        
+    });
 })

@@ -20,6 +20,9 @@ require('cypress-xpath')
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+Cypress.SelectorPlayground.defaults({
+  selectorPriority: ['id', 'class', 'attributes', 'data-cy', 'data-test', 'data-testid', 'tag', 'nth-child']
+})
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
