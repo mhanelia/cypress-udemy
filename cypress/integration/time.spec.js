@@ -22,7 +22,7 @@ describe('Trabalhando com alertas', () => {
     it.only('Vai para o futuro', () => {
         
         cy.get('#buttonTimePassed').click()
-        cy.get('#resultado > span').invoke('text').should('be.gt','1606767073431')
+        cy.get('#resultado > span').invoke('text').should('gt','1606767073431')
     
         cy.clock()
         cy.get('#buttonTimePassed').click()

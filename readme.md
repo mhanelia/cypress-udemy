@@ -1,52 +1,63 @@
-Iniciar um projeto node.js - npm init -y
-Baixar o Cypress - npm install -D cypress
-Abrir o Cypress - npx cypress open
+# cypress-udemy
 
---
+Repositório utilizado durante o curso Testes de aplicações modernas com Cypress.
 
-Arrow functions:
+  - cypress
+  - xpath
+  - page objects
+  - teste funcional
+  - API
+  - teste de interface
+
+# Comandos para instalação do cypress e cypress-xpath:
+```sh
+  > git init    
+  > npm init -y   
+  > npm install -D cypress
+  > npm install -D cypress-xpath
+```
+
+# Anotações durante o curso: 
+
+# Arrow functions:
 Uma expressão arrow function possui uma sintaxe mais curta quando comparada a uma expressão de 
 função (function expression) e não tem seu próprio this, arguments, super ou new.target. 
 Estas expressões de funções são melhor aplicadas para funções que não sejam métodos, e 
 elas não podem ser usadas como construtoras (constructors).
---
 
-Promisses:
+# Promisses:
 Uma Promise é um objeto que representa a eventual conclusão ou falha de uma operação assincrona.
 Uma necessidade comum é executar duas ou mais operações assincronas consecutivas, onde cada operação 
 subsequente começa quando a operação anterior é bem sucedida, com o resultado do passo anterior. 
 Nós conseguimos isso criando uma cadeia de promises.
-Exemplo
+Exemplo:
+```sh
 cy.title().then(title =>{
             console.log(title)
         })
---
+```
 
-Describe/ It
-
+#Describe/It
 describe: agrupa testes
 it: são os testes em sí
 .skip: ele pula o teste ou grupo de testes, pode ser usado mais de uma vez
 .only: executa apenas aquele teste ou grupo de testes. Não pode ser mais de uma vez ele 
 sempre entende o ultimo .only
---
 
-Assertivas:
-
-ao usar expect, tentar colocar de um jeito legível: expect(a).to.be.equal(a)
---
-
+#Assertivas:
+Garantem que o teste executou da forma esperada. Ao usar expect, tentar colocar de um jeito legível: expect(a).to.be.equal(a)
 Procurar encadear as ações quando possível. Ex.:
-    cy.get('#buttonSimple')
-                .click()
-                .should('have.value', 'Obrigado!')
+```sh    
+cy.get('#buttonSimple')
+    .click()
+    .should('have.value', 'Obrigado!')
+```
 
-
+# Elementos:
 Nas buscas, o . é uma classe CSS, o # é uma busca por ID, [] ele busca dentro da propriedade
 do elemento, @ é quando usa-se aliases
 
---
-Comandos: 
+# Comandos: 
 .reload() - recarrega a tela
 
 .should() - Crie uma assertiva. As assertivas são repetidas automaticamente até que 
@@ -55,7 +66,7 @@ comando diretamente anterior, ele sempre monitora o elemento que vem do comando 
 
 before() ou beforeEach() podem ser chamados nas specs ou dentro de cypress/support
 
-para verificar o texte dentro de um campo de texto (textfield) usa-se have.value 
+para verificar o texto dentro de um campo de texto (textfield) usa-se have.value 
 
 .click({multiple:true}) - permite clicar em mais de um combobox em uma mesma chamada
 
@@ -72,3 +83,4 @@ should retorna o que foi enviado pelo elemento, o then vai ser o mesmo objeto ma
 cy.wrap() ele encapsula um objeto para que esse objeto seja usado com outros cy.
 
 invoke chama uma propriedade de um objeto como função 
+
