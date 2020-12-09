@@ -1,6 +1,6 @@
 {
-    "chromeWebSecurity": false
-    
+    "chromeWebSecurity": false,
+    "baseUrl": "https://barrigarest.wcaquino.me/"
 }
 
 

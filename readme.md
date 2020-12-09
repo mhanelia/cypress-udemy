@@ -57,6 +57,23 @@ cy.get('#buttonSimple')
 Nas buscas, o . é uma classe CSS, o # é uma busca por ID, [] ele busca dentro da propriedade
 do elemento, @ é quando usa-se aliases
 
+# API REST
+
+Verbos mais utilizados:
+GET: O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem retornar apenas dados.
+PUT: O método PUT substitui todas as atuais representações do recurso de destino pela carga de dados da requisição.
+POST: O método POST é utilizado para submeter uma entidade a um recurso específico, frequentemente causando uma mudança no estado do recurso ou efeitos colaterais no servidor.
+DELETE: O método DELETE remove um recurso específico.
+
+Envio de dados principais:
+via URL, BODY, HEADER, 
+
+Status code: 
+O status code geralmente vêm em numeros de três digitos, onde os mais comuns são
+serie 2xx - indicam sucesso
+serie 4xx - erro no cliente, quando se faz uma requisição incorreta
+serie 5xx - erro no servidor, quando faz a requisição correta mas o servidor apresenta algum problema 
+
 # Comandos: 
 .reload() - recarrega a tela
 
@@ -83,4 +100,6 @@ should retorna o que foi enviado pelo elemento, o then vai ser o mesmo objeto ma
 cy.wrap() ele encapsula um objeto para que esse objeto seja usado com outros cy.
 
 invoke chama uma propriedade de um objeto como função 
+
+
 
