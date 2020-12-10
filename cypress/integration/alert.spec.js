@@ -81,7 +81,7 @@ describe('Trabalhando com alertas', ()=>{
         
     })
 
-    it.only('Criar comando', () => {
+    it('Criar comando', () => {
         cy.clickAlert('#alert', 'Alert Simples')
         
     });

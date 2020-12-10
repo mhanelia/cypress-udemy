@@ -4,6 +4,10 @@ describe('Esperas...', () => {
     beforeEach(()=>{
         cy.visit('https://wcaquino.me/cypress/componentes.html');
     })
+
+    beforeEach(() => {
+        cy.reload()
+    })
     it('Deve aguardar elemento estar disponível', () => {
         cy.get('#novoCampo').should('not.exist')
         cy.get('#buttonDelay').click()
@@ -13,8 +17,7 @@ describe('Esperas...', () => {
     });
 
     it('Deve fazer retrys', () => {
-        console.log(document.getElementById("MyHeader").style.backgroundColor='red')
-
+        
         cy.get('#novoCampo').should('not.exist')
         cy.get('#buttonDelay').click()
         cy.get('#novoCampo').should('not.exist')
@@ -56,14 +59,14 @@ describe('Esperas...', () => {
         
     });
 
-    it.only('Click retry', () => {
+    it('Click retry', () => {
         cy.get('#buttonCount')
         .click()
         .should('have.value', '1')
         
     });
 
-    it.only('Should vs Then', () => {
+    it('Should vs Then', () => {
         cy.get('#buttonListDOM').click()
         cy.get('#lista li span').debug()
         // .should('have.length', '1')

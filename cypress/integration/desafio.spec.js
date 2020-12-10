@@ -12,7 +12,7 @@ describe('Desafio', () => {
         cy.get('.toast-message').should('be.visible')
     });
     // Inserir conta
-    it.skip('Deve inserir a conta', () => {
+    it('Deve inserir a conta', () => {
         cy.get('[data-test="menu-settings"]').click()
         cy.get('[href="/contas"]').click()
         cy.get('[data-test="nome"]').type('Conta entrada')
@@ -33,7 +33,7 @@ describe('Desafio', () => {
         
 
     // Inserir conta repetida
-    it.skip('Inserir conta repetida', () => {
+    it('Inserir conta repetida', () => {
         cy.wait(1000)
         cy.get('[data-test="menu-settings"]').click()
         cy.get('[href="/contas"]').click()
@@ -43,7 +43,7 @@ describe('Desafio', () => {
     });
 
     // Inserir movimentacao
-    it.skip('Inserir movimentacao', () => {
+    it('Inserir movimentacao', () => {
         cy.get('[data-test="menu-movimentacao"]').click()
         cy.get('.btn-success').click()
         cy.get('[data-test="data-transacao"]').invoke('val','2020/12/12')

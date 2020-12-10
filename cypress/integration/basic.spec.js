@@ -1,7 +1,7 @@
 /// <reference types='cypress' />
 
 describe('Cypress basics',()=>{
-    it.only('deve visitar uma pagina e realizar uma assertiva no titulo', () => {
+    it('deve visitar uma pagina e realizar uma assertiva no titulo', () => {
         cy.visit('https://wcaquino.me/cypress/componentes.html')
 
         

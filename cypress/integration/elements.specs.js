@@ -115,7 +115,7 @@ describe('Trabalhando com elementos basicos', ()=>{
 
     });
 
-    it.only('Combo mul', () => {
+    it('Combo mul', () => {
         cy.get('[data-testid=dataEsportes]')
         .select(['natacao','Corrida','nada'])
 

@@ -1,5 +1,5 @@
 /// <reference types='cypress' />
-
+///deve ser executado um por vez
 describe('', () => {
     beforeEach(()=>{
         cy.visit('https://wcaquino.me/cypress/componentes.html');
@@ -29,19 +29,20 @@ describe('', () => {
 
     it('Its', () => {
         //its traz uma propriedade do objeto
-        const obj = { nome: 'User', idade: 20}
-        cy.wrap(obj).should('to.have.property', 'nome', 'User')
+        const obj = { nome: 'User', idade: 20 }
+        cy.wrap(obj).should('have.property', 'nome', 'User')
         cy.wrap(obj).its('nome').should('be.equal', 'User')
 
-        const obj2 = { nome: 'User', idade: 20, endereco: {rua: 'dos bobos'} }
+        const obj2 = { nome: 'User', idade: 20, endereco: { rua: 'dos bobos' } }
         cy.wrap(obj2).its('endereco').should('have.property', 'rua')
         cy.wrap(obj2).its('endereco').its('rua').should('contain', 'bobos')
         cy.wrap(obj2).its('endereco.rua').should('contain', 'bobos')
 
-        cy.title().its('length').should('be.equal',20)
+        cy.visit('https://wcaquino.me/cypress/componentes.html')
+        cy.title().its('length').should('be.equal', 20)
     });
 
-    it.only('Invoke', () => {
+    it('Invoke', () => {
         const getValue = () => 1;
         const soma = (a,b) => a+b;
 

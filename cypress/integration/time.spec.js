@@ -19,7 +19,7 @@ describe('Trabalhando com alertas', () => {
         cy.get('#resultado > span').should('contain', '13/04/2012')
     });
 
-    it.only('Vai para o futuro', () => {
+    it('Vai para o futuro', () => {
         
         cy.get('#buttonTimePassed').click()
         cy.get('#resultado > span').invoke('text').should('gt','1606767073431')

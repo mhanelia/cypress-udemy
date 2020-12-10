@@ -22,7 +22,7 @@ describe('Teste dinamico', () => {
     
     });
 
-    it.only('Deve selecionar todos usando o each', () => {
+    it('Deve selecionar todos usando o each', () => {
         cy.get('#formNome').type('Usuario')
         cy.get('#formSobrenome').type('Qualquer')
         cy.get(`[name=formSexo][value=F]`).click()

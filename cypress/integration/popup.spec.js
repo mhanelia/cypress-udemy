@@ -9,7 +9,7 @@ describe('Trabalhando com Popup', ()=>{
         })        
     });
 
-    it.only('Deve verificar se o popup foi invocado', () => {
+    it('Deve verificar se o popup foi invocado', () => {
         cy.visit('https://wcaquino.me/cypress/componentes.html')
         cy.window().then(win => {
             cy.stub(win, 'open').as('winOpen')
@@ -20,7 +20,7 @@ describe('Trabalhando com Popup', ()=>{
     })
 })
 
-describe.only('Com links', () => {
+describe('Com links', () => {
     beforeEach(() =>{
         cy.visit('https://wcaquino.me/cypress/componentes.html')
     })
